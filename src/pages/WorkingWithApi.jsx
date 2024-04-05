@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const WorkingWithApi = () =>
@@ -28,9 +28,25 @@ export const WorkingWithApi = () =>
       }
 
   return (
-    <div>
-        
-    </div>
+    <>
+      <button onClick={todo} className="btn bg-red-800">
+        Get Todo
+      </button>
+
+      <div>
+         <div>
+         {todo?.data?.map((user, id) => (
+            <div
+              className="flex"
+              key={id}
+            >
+              <div>{user.id} <span>{user.description}</span> <span>{user.name}</span>   </div>
+              
+            </div> ))}  
+         </div>
+             
+      </div>   
+    </>
   )
 }
 
